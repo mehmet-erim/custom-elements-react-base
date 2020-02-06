@@ -24,12 +24,18 @@ function App() {
     script.src = './elements/modal.js';
 
     script.onload = (() => {
-      setLoaded(true);
       setTimeout(() => {
         modalRef.current.addEventListener('close', () => setModalShow(false));
       }, 1000);
     })();
     document.body.appendChild(script);
+
+    const script2 = document.createElement('script');
+    script.src = './elements/angular-element.js';
+
+    script2.onLoad = (() => {
+      setLoaded(true);
+    })();
   }, []);
 
   useEffect(() => {
@@ -42,32 +48,30 @@ function App() {
         Open modal
       </Button>
       {isLoaded ? (
-        <modal-element ref={modalRef} width="800px" height="600px">
-          <h1>Header</h1>
-          <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut modi,
-            aperiam natus eius ipsa nemo ipsum temporibus veniam, laborum
-            mollitia voluptates! Voluptate facilis quas maiores magni, nisi
-            nobis minima reprehenderit. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Aut modi, aperiam natus eius ipsa nemo ipsum
-            temporibus veniam, laborum mollitia voluptates! Voluptate facilis
-            quas maiores magni, nisi nobis minima reprehenderit. Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Aut modi, aperiam natus
-            eius ipsa nemo ipsum temporibus veniam, laborum mollitia voluptates!
-            Voluptate facilis quas maiores magni, nisi nobis minima
-            reprehenderit. Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Aut modi, aperiam natus eius ipsa nemo ipsum temporibus
-            veniam, laborum mollitia voluptates! Voluptate facilis quas maiores
-            magni, nisi nobis minima reprehenderit. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Aut modi, aperiam natus eius ipsa nemo
-            ipsum temporibus veniam, laborum mollitia voluptates! Voluptate
-            facilis quas maiores magni, nisi nobis minima reprehenderit. Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Aut modi, aperiam
-            natus eius ipsa nemo ipsum temporibus veniam, laborum mollitia
-            voluptates! Voluptate facilis quas maiores magni, nisi nobis minima
-            reprehenderit.
-          </div>
-        </modal-element>
+        <>
+          <modal-element ref={modalRef} width="800px" height="600px">
+            <h1>Header</h1>
+            <div>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut modi, aperiam natus eius
+              ipsa nemo ipsum temporibus veniam, laborum mollitia voluptates! Voluptate facilis quas
+              maiores magni, nisi nobis minima reprehenderit. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Aut modi, aperiam natus eius ipsa nemo ipsum temporibus veniam,
+              laborum mollitia voluptates! Voluptate facilis quas maiores magni, nisi nobis minima
+              reprehenderit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut modi,
+              aperiam natus eius ipsa nemo ipsum temporibus veniam, laborum mollitia voluptates!
+              Voluptate facilis quas maiores magni, nisi nobis minima reprehenderit. Lorem ipsum
+              dolor sit amet consectetur adipisicing elit. Aut modi, aperiam natus eius ipsa nemo
+              ipsum temporibus veniam, laborum mollitia voluptates! Voluptate facilis quas maiores
+              magni, nisi nobis minima reprehenderit. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Aut modi, aperiam natus eius ipsa nemo ipsum temporibus veniam,
+              laborum mollitia voluptates! Voluptate facilis quas maiores magni, nisi nobis minima
+              reprehenderit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut modi,
+              aperiam natus eius ipsa nemo ipsum temporibus veniam, laborum mollitia voluptates!
+              Voluptate facilis quas maiores magni, nisi nobis minima reprehenderit.
+            </div>
+          </modal-element>
+          <app-root></app-root>
+        </>
       ) : null}
     </Container>
   );
